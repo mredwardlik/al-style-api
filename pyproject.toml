@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "alstyle"
+version = "2.0.0"
+description = "Client and command line tool for the Al-Style dealer API: categories, products, stock and photos to CSV and JSON"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Edward Lik" }]
+requires-python = ">=3.10"
+dependencies = ["requests>=2.25", "rich>=12"]
+keywords = ["al-style", "api", "client", "csv", "export", "dealer"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+    "Topic :: Office/Business",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "responses>=0.23"]
+
+[project.scripts]
+alstyle = "alstyle.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/mredwardlik/al-style-api"
+Issues = "https://github.com/mredwardlik/al-style-api/issues"
+
+[tool.setuptools]
+packages = ["alstyle"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "alstyle"]
+addopts = "--doctest-modules --ignore=alstyle/__main__.py"
